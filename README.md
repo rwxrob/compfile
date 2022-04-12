@@ -1,10 +1,6 @@
-# 🌳 Go Bonzai™ Completer Template
+# 🌳 Go Bonzai™ File Completer
 
-*Create a new GitHub project using this template and change this
-README.md to match your project. Make all your template changes before
-making your first commit.*
-
-[![GoDoc](https://godoc.org/github.com/rwxrob/compfoo?status.svg)](https://godoc.org/github.com/rwxrob/compfoo)
+[![GoDoc](https://godoc.org/github.com/rwxrob/compfile?status.svg)](https://godoc.org/github.com/rwxrob/compfile)
 [![License](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](LICENSE)
 
 ## Style Guidelines
@@ -29,11 +25,3 @@ can be used freely to refer to the Bonzai™ project
 <https://github.com/rwxrob/bonzai> without limitation. To avoid
 potential developer confusion, intentionally using these trademarks to
 refer to other projects --- free or proprietary --- is prohibited.
-
-## Reminders
-
-* Change `compfoo` every place to your project name (`git grep compfoo`)
-* Remove anything you don't need
-* Change `.github/FUNDING.yaml` to your own information
-* Update `.gitignore` to your liking
-* Will need to `go get -u` to update dependencies
