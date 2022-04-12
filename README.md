@@ -3,6 +3,10 @@
 [![GoDoc](https://godoc.org/github.com/rwxrob/compfile?status.svg)](https://godoc.org/github.com/rwxrob/compfile)
 [![License](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](LICENSE)
 
+Provides the regular shell completion most expect for files and
+directories with the trailing slash added to directories for quick
+visualization. Nothing special beyond that (colors, emojis, etc.)
+
 ## Style Guidelines
 
 * Everything through `go fmt` or equiv, no exceptions
