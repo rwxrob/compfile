@@ -73,3 +73,11 @@ func ExampleFile_dir_File() {
 	// [bar/foo.go]
 	// [bar/foo.go]
 }
+
+func ExampleFile_relative() {
+	os.Chdir("testdata/file/bar")
+	defer os.Chdir("../../../")
+	fmt.Println(compfile.New().Complete(nil, "../"))
+	//Output:
+	// [../bar/ ../blah/ ../come/ ../foo.go]
+}
