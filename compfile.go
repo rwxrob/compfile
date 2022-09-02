@@ -36,8 +36,8 @@ type comp struct{}
 // consistent across all runtimes. Note that unlike bash completion no
 // indication of the type of file is provided.
 func (comp) Complete(_ bonzai.Command, args ...string) []string {
-	if len(args) == 0 || args[len(args)-1] == "" {
-		return entriesWithSlash(".")
+	if len(args) == 0 {
+		return recurse(".", "")
 	}
 
 	arg := args[len(args)-1]
@@ -84,6 +84,15 @@ func isDir(path string) bool {
 	return info.IsDir()
 }
 
+func isDirEmpty(dir string) bool {
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return true
+	}
+
+	return len(entries) == 0
+}
+
 func expandHome(path string) string {
 	if !strings.HasPrefix(path, "~") {
 		return path
@@ -100,8 +109,8 @@ func expandHome(path string) string {
 	return home + path
 }
 
-func recurse(path, file string) []string {
-	entries := entriesWithSlash(path)
+func recurse(dir, file string) []string {
+	entries := entriesWithSlash(dir)
 
 	// complete relative paths
 	if file == "." || file == ".." {
@@ -110,7 +119,7 @@ func recurse(path, file string) []string {
 	}
 
 	list := filt.BaseHasPrefix(entries, file)
-	if len(list) == 1 && isDir(list[0]) {
+	if len(list) == 1 && isDir(list[0]) && !isDirEmpty(list[0]) {
 		return recurse(list[0], "")
 	}
 
